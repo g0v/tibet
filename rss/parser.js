@@ -60,11 +60,26 @@ module.exports = function (feeds, cb) {
       })
       .on('readable', function () {
         total += 1;
-        var item = this.read();
-        var meta = item.meta;
-        item.meta = {
-          title: meta.title,
-          copyright: meta.copyright
+        var itemData = this.read();
+        var item = {
+          title: itemData.title,
+          description: itemData.description,
+          date: itemData.date,
+          pubdate: itemData.pubdate,
+          pubDate: itemData.pubDate,
+          link: itemData.link,
+          guid: itemData.guid,
+          author: itemData.author,
+          comments: itemData.comments,
+          origlink: itemData.origlink,
+          image: itemData.image,
+          source: itemData.source,
+          categories: itemData.categories,
+          enclosures: itemData.enclosures,
+          meta: {
+            copyright: itemData.meta && itemData.meta.copyright,
+            title: itemData.meta && itemData.meta.title
+          }
         };
         f.start(item, function (keep) {
           if (keep) {
