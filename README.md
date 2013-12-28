@@ -48,4 +48,4 @@ $ npm run rss
 
 http://g0v.github.io/tibet/rss.xml
 
-http://g0v.github.io/tibet/data/{year}/{month}.json
+http://g0v.github.io/tibet/data/archive/{year}/{month}.json
