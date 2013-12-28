@@ -6,10 +6,16 @@ var mkdirp = require('mkdirp');
 var parser = require('../rss/parser');
 var config = require('../config.json');
 
+var readJSONFile = function (file) {
+  var exists = fs.existsSync(file);
+  return exists ? JSON.parse(fs.readFileSync(file, 'utf8')) : null;
+};
+
 parser(config.rss, function (err, data) {
   if (err) {
     console.log('  Failed.');
     console.log();
+    process.exit(1);
     return;
   }
   
@@ -24,10 +30,29 @@ parser(config.rss, function (err, data) {
   Object.keys(data.archive).forEach(function (year) {
     var yearDir = path.join(dir, 'archive', year);
     mkdirp.sync(yearDir);
+
     Object.keys(data.archive[year]).forEach(function (month) {
       var file = path.join(yearDir, month + '.json');
+      var monthData = readJSONFile(file) || [];
+      var newMonthData = data.archive[year][month];
+      var dedup = [];
+
+      var guid = {};
+
+      monthData.forEach(function (article) {
+        guid[article.guid] = 1;
+      });
+
+      newMonthData.forEach(function (article) {
+        if (!guid[article.guid]) {
+          dedup.push(article);
+        }
+      });
+
+      monthData = dedup.concat(monthData);
+
       console.log('  - ' + file);
-      fs.writeFileSync(file, JSON.stringify(data.archive[year][month]));
+      fs.writeFileSync(file, JSON.stringify(monthData));
     });
   });
 
