@@ -64,7 +64,7 @@ module.exports = function (feeds, cb) {
         f.start(item, function (keep) {
           if (keep) {
             var year = item.date.getFullYear();
-            var month = item.date.getMonth();
+            var month = item.date.getMonth() + 1;
             console.log('  - Got article: %s', item.title);
             articles.push(item);
             year = archive[year] || (archive[year] = {});
