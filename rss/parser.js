@@ -61,6 +61,11 @@ module.exports = function (feeds, cb) {
       .on('readable', function () {
         total += 1;
         var item = this.read();
+        var meta = item.meta;
+        item.meta = {
+          title: meta.title,
+          copyright: meta.copyright
+        };
         f.start(item, function (keep) {
           if (keep) {
             var year = item.date.getFullYear();
