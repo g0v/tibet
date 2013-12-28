@@ -11,3 +11,10 @@ $ git clone git@github.com:g0v/tibet.git
 $ cd tibet
 $ npm install
 ```
+
+更新 RSS 資料
+=============
+
+```bash
+$ npm run rss
+```
