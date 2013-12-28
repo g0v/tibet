@@ -12,6 +12,8 @@ var readJSONFile = function (file) {
   return exists ? JSON.parse(fs.readFileSync(file, 'utf8')) : null;
 };
 
+var baseDir = (process.argv[0] && path.join(process.cwd(), process.argv[0])) || process.cwd();
+
 parser(config.rss, function (err, data) {
   if (err) {
     console.log('  Failed.');
@@ -22,7 +24,7 @@ parser(config.rss, function (err, data) {
   
   console.log('  Save files');
 
-  var dir = path.join(__dirname, '../data');
+  var dir = path.join(baseDir, 'data');
   mkdirp.sync(dir);
 
   console.log('  - articles.json');  
@@ -76,7 +78,7 @@ parser(config.rss, function (err, data) {
     });
   });
 
-  fs.writeFileSync(path.join(__dirname, '../rss.xml'), feed.xml());
+  fs.writeFileSync(path.join(baseDir, 'rss.xml'), feed.xml());
 
   console.log();
   console.log('  Done !');
