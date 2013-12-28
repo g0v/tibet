@@ -34,7 +34,7 @@ Filter.prototype.start = function (item, cb) {
     if (!success) {
       keep = false;
     }
-    if (!len && keep) {
+    if (!len) {
       cb && cb(keep);
     }
   };

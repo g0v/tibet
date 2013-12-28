@@ -19,6 +19,7 @@
   "homepage": "https://github.com/g0v/tibet",
   "dependencies": {
     "feedparser": "~0.16.4",
-    "request": "~2.30.0"
+    "request": "~2.30.0",
+    "mkdirp": "~0.3.5"
   }
 }
