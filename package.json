@@ -7,6 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "rss": "node ./bin/rss.js"
   },
+  "bin": {
+    "tibet-rss": "./bin/rss.js"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/g0v/tibet.git"
