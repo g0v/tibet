@@ -20,6 +20,7 @@
   "dependencies": {
     "feedparser": "~0.16.4",
     "request": "~2.30.0",
-    "mkdirp": "~0.3.5"
+    "mkdirp": "~0.3.5",
+    "rss": "~0.2.1"
   }
 }

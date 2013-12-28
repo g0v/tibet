@@ -3,6 +3,7 @@
 var fs = require('fs');
 var path = require('path');
 var mkdirp = require('mkdirp');
+var RSS = require('rss');
 var parser = require('../rss/parser');
 var config = require('../config.json');
 
@@ -55,6 +56,27 @@ parser(config.rss, function (err, data) {
       fs.writeFileSync(file, JSON.stringify(monthData));
     });
   });
+
+  console.log();
+  console.log(' Create rss.xml');
+
+  config.rssOptions.pubDate = (new Date()).toGMTString();
+  var feed = new RSS(config.rssOptions);
+
+  data.articles.slice(20).forEach(function (article) {
+    feed.item({
+      title: article.title,
+      description: article.description,
+      url: article.link,
+      guid: article.guid,
+      author: article.author,
+      date: article.date,
+      categories: article.categories,
+      enclosures: article.enclosures
+    });
+  });
+
+  fs.writeFileSync(path.join(__dirname, '../rss.xml'), feed.xml());
 
   console.log();
   console.log('  Done !');
