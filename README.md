@@ -43,3 +43,9 @@ $ npm run rss
 ### Filters
 
 參考 [Wiki](https://github.com/g0v/tibet/wiki/Filters)
+
+## Data
+
+http://g0v.github.io/tibet/rss.xml
+
+http://g0v.github.io/tibet/data/{year}/{month}.json
