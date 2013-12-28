@@ -39,3 +39,7 @@ $ npm run rss
   ]
 }
 ```
+
+### Filters
+
+參考 [Wiki](https://github.com/g0v/tibet/wiki/Filters)
