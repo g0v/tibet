@@ -21,7 +21,7 @@ module.exports = function (feeds, cb) {
   var feedsLen = feeds.length;
   
   var sort = function (a, b) {
-    return a.date - b.date;
+    return b.date - a.date;
   };
 
   var sortData = function () {
