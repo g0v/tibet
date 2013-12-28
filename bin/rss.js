@@ -12,7 +12,7 @@ var readJSONFile = function (file) {
   return exists ? JSON.parse(fs.readFileSync(file, 'utf8')) : null;
 };
 
-var baseDir = (process.argv[0] && path.join(process.cwd(), process.argv[0])) || process.cwd();
+var baseDir = (process.argv[2] && path.join(process.cwd(), process.argv[2])) || process.cwd();
 
 parser(config.rss, function (err, data) {
   if (err) {
