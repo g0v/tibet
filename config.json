@@ -1,0 +1,8 @@
+{
+  "rss": [
+    {"url": "http://www.vot.org/cn/feed/"},
+    {"url": "http://www.thetibetpost.com/zh?format=feed&type=rss"},
+    {"url": "http://www.bbc.co.uk/zhongwen/trad/topics/tibet/index.xml"},
+    {"url": "http://www.voachinese.com/api/", "filters": ["keyword.西藏"]}
+  ]
+}
