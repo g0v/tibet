@@ -7,10 +7,18 @@
 
 ## 安裝
 
+### 開發
+
 ```bash
 $ git clone git@github.com:g0v/tibet.git
 $ cd tibet
 $ npm install
+```
+
+### 使用
+
+```bash
+$ npm install -g git://github.com/g0v/tibet.git
 ```
 
 ## RSS
