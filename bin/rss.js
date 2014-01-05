@@ -29,6 +29,7 @@ parser(config.rss, function (err, data) {
 
   console.log('  - articles.json');  
   fs.writeFileSync(path.join(dir, 'articles.json'), JSON.stringify(data.articles));
+  var filesMeta = [];
 
   Object.keys(data.archive).forEach(function (year) {
     var yearDir = path.join(dir, 'archive', year);
@@ -56,8 +57,13 @@ parser(config.rss, function (err, data) {
 
       console.log('  - ' + file);
       fs.writeFileSync(file, JSON.stringify(monthData));
+      filesMeta.push(file);
     });
   });
+
+  console.log();
+  console.log(' Create meta.json');
+  fs.writeFileSync(path.join(baseDir, '/data/meta.json'), JSON.stringify(filesMeta));
 
   console.log();
   console.log(' Create rss.xml');
