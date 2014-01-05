@@ -57,7 +57,7 @@ parser(config.rss, function (err, data) {
 
       console.log('  - ' + file);
       fs.writeFileSync(file, JSON.stringify(monthData));
-      filesMeta.push(file);
+      filesMeta.push(file.replace(baseDir, ''));
     });
   });
 
