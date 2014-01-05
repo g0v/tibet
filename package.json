@@ -1,0 +1,27 @@
+{
+  "name": "tibet",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "http-server": "~0.6.1",
+    "stylus": "~0.41.3",
+    "nib": "~1.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "style": "./node_modules/stylus/bin/stylus -w ./css/style.styl -u ./node_modules/nib/lib/nib.js",
+    "start": "./node_modules/http-server/bin/http-server ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/g0v/tibet.git"
+  },
+  "author": "Po-Ying Chen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/g0v/tibet/issues"
+  },
+  "homepage": "https://github.com/g0v/tibet"
+}
