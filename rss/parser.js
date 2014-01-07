@@ -61,6 +61,10 @@ module.exports = function (feeds, cb) {
       .on('readable', function () {
         total += 1;
         var itemData = this.read();
+        if (!itemData) {
+          done += 1;
+          return;
+        }
         var item = {
           title: itemData.title,
           description: itemData.description,
