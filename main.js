@@ -26,10 +26,10 @@
   };
 
   timeline.bindEvents = function () {
-    timeline.$win.on('scroll', timeline.winSrollHandler);
+    timeline.$win.on('scroll', timeline.winScrollHandler);
   };
   
-  timeline.winSrollHandler = function () {
+  timeline.winScrollHandler = function () {
     if (!timeline.stopped && timeline.$win.scrollTop() + timeline.$win.height() > timeline.$doc.height() - 200) {
       timeline.load();
     }
