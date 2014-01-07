@@ -63,6 +63,7 @@
             timeline.createEvents(data);
             timeline.loading = false;
             deferred.resolve();
+            timeline.winScrollHandler();
           }, deferred.reject);
       } else {
         deferred.resolve();
