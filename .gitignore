@@ -2,3 +2,5 @@ node_modules
 data
 rss.xml
 gh-pages
+images
+.DS_Store
