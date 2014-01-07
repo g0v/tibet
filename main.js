@@ -30,7 +30,7 @@
   };
   
   timeline.winSrollHandler = function () {
-    if (timeline.$win.scrollTop() + timeline.$win.height() > timeline.$doc.height() - 200) {
+    if (!timeline.stopped && timeline.$win.scrollTop() + timeline.$win.height() > timeline.$doc.height() - 200) {
       timeline.load();
     }
   };
@@ -66,6 +66,7 @@
             timeline.winScrollHandler();
           }, deferred.reject);
       } else {
+        timeline.stopped = true;
         deferred.resolve();
       }
     }
