@@ -75,7 +75,7 @@
 
   timeline.createEvents = function (events) {
     var html = '';
-    var template = '<article class="article {{__class}}"><div class="container"><h1 class="article__title">{{title}}</h1><div class="article__meta"><span class="article__time">{{__date}}</span><span class="article__from">{{__metaTitle}}</span></div><div class="article__entry">{{description}}</div></div></article>';
+    var template = '<article class="article {{__class}}"><div class="container"><h1 class="article__title"><a href="{{link}}">{{title}}</a></h1><div class="article__meta"><span class="article__time">{{__date}}</span><span class="article__from">{{__metaTitle}}</span></div><div class="article__entry">{{description}}</div></div></article>';
     events.forEach(function (evt) {
       evt.__class = timeline.eventsLength % 2 ? 'article--even' : 'article--odd';
       evt.__date = (new Date(evt.pubdate)).toDateString();
