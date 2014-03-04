@@ -19,7 +19,7 @@ module.exports = function (feeds, cb) {
   var total = 0;
   var done = 0;
   var feedsLen = feeds.length;
-  
+
   var sort = function (a, b) {
     return b.date - a.date;
   };
